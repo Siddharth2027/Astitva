@@ -1,516 +1,519 @@
-
 /* Ancient Wisdom Page Specific Styles */
 
 .page-hero {
-    background-size: cover;
-    background-position: center;
-    height: 400px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--white);
-    text-align: center;
+  background-size: cover;
+  background-position: center;
+  height: 400px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--white);
+  text-align: center;
+}
+
+.wisdom-hero {
+  background-image: url('assets/wisdom-hero.jpg');
+}
+
+.page-hero .hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  padding: 0 2rem;
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  font-family: 'Volkhov', serif;
+}
+
+.page-hero p {
+  font-size: 1.2rem;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.page-hero .hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+/* Knowledge Systems Grid */
+.knowledge-systems-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin: 3rem 0;
+}
+
+.knowledge-system-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.knowledge-system-card:hover, 
+.knowledge-system-card.hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.knowledge-system-card.active {
+  background-color: rgba(255, 153, 51, 0.1);
+  border: 2px solid var(--primary-color);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.system-icon {
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 153, 51, 0.1);
+  border-radius: 50%;
+  transition: all 0.3s ease;
+}
+
+.knowledge-system-card:hover .system-icon,
+.knowledge-system-card.hover .system-icon {
+  background-color: var(--primary-color);
+}
+
+.system-icon img {
+  width: 50px;
+  height: 50px;
+  transition: transform 0.3s ease;
+}
+
+.knowledge-system-card:hover .system-icon img,
+.knowledge-system-card.hover .system-icon img {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1);
+}
+
+.knowledge-system-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.knowledge-system-card p {
+  color: var(--text-color);
+  font-size: 0.95rem;
+}
+
+/* Wisdom Section Styles */
+.wisdom-section {
+  margin: 5rem 0;
+  padding: 3rem 0;
+  /* opacity: 0; / / Commented out for testing */
+  /* transform: translateY(30px); / / Commented out for testing */
+  transition: all 0.8s ease;
+}
+
+.wisdom-section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.wisdom-section.highlight {
+  animation: highlight-pulse 1.5s ease;
+  border: 2px solid var(--primary-color);
+}
+
+@keyframes highlight-pulse {
+  0% { 
+      background-color: transparent; 
+      transform: scale(1); 
   }
-  
-  .wisdom-hero {
-    background-image: url('assets/wisdom-hero.jpg');
+  50% { 
+      background-color: rgba(255, 153, 51, 0.2);
+      transform: scale(1.01); 
   }
-  
-  .page-hero .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 800px;
-    padding: 0 2rem;
+  100% { 
+      background-color: transparent; 
+      transform: scale(1); 
   }
-  
-  .page-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    font-family: 'Volkhov', serif;
-  }
-  
-  .page-hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-  
-  .page-hero .hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-  }
-  
-  /* Knowledge Systems Grid */
-  .knowledge-systems-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-    margin: 3rem 0;
-  }
-  
-  .knowledge-system-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    box-shadow: var(--box-shadow);
-    padding: 2rem;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .knowledge-system-card:hover, 
-  .knowledge-system-card.hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  .system-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 153, 51, 0.1);
-    border-radius: 50%;
-    transition: all 0.3s ease;
-  }
-  
-  .knowledge-system-card:hover .system-icon,
-  .knowledge-system-card.hover .system-icon {
-    background-color: var(--primary-color);
-  }
-  
-  .system-icon img {
-    width: 50px;
-    height: 50px;
-    transition: transform 0.3s ease;
-  }
-  
-  .knowledge-system-card:hover .system-icon img,
-  .knowledge-system-card.hover .system-icon img {
-    transform: scale(1.1);
-    filter: brightness(0) invert(1);
-  }
-  
-  .knowledge-system-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-  }
-  
-  .knowledge-system-card p {
-    color: var(--text-color);
-    font-size: 0.95rem;
-  }
-  
-  /* Wisdom Section Styles */
-  .wisdom-section {
-    margin: 5rem 0;
-    padding: 3rem 0;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.8s ease;
-  }
-  
-  .wisdom-section.revealed {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  
-  .wisdom-section.highlight {
-    animation: highlight-pulse 1.5s ease;
-  }
-  
-  @keyframes highlight-pulse {
-    0% { background-color: transparent; }
-    50% { background-color: rgba(255, 153, 51, 0.1); }
-    100% { background-color: transparent; }
-  }
-  
-  .wisdom-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem;
-  }
-  
-  .wisdom-header {
-    text-align: center;
-    margin-bottom: 3rem;
-  }
-  
-  .wisdom-header h2 {
-    font-size: 2.5rem;
-    font-family: 'Volkhov', serif;
-    color: var(--primary-color);
-    position: relative;
-    display: inline-block;
-  }
-  
-  .wisdom-header h2:after {
-    content: '';
-    position: absolute;
-    width: 50%;
-    height: 3px;
-    background-color: var(--accent-color);
-    bottom: -10px;
-    left: 25%;
-  }
-  
+}
+
+.wisdom-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.wisdom-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.wisdom-header h2 {
+  font-size: 2.5rem;
+  font-family: 'Volkhov', serif;
+  color: var(--primary-color);
+  position: relative;
+  display: inline-block;
+}
+
+.wisdom-header h2:after {
+  content: '';
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  background-color: var(--accent-color);
+  bottom: -10px;
+  left: 25%;
+}
+
+.wisdom-content {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+}
+
+.wisdom-image {
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+  height: 100%;
+  max-height: 600px;
+}
+
+.wisdom-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.wisdom-section:hover .wisdom-image img {
+  transform: scale(1.05);
+}
+
+.wisdom-text {
+  color: var(--text-color);
+}
+
+.wisdom-text h3 {
+  font-size: 1.8rem;
+  color: var(--accent-color);
+  margin: 1.5rem 0 1rem;
+}
+
+.wisdom-text p {
+  line-height: 1.7;
+  margin-bottom: 1.5rem;
+}
+
+/* Yoga Paths Grid */
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.path-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  border-top: 4px solid var(--accent-color);
+  transition: all 0.3s ease;
+}
+
+.path-card:hover,
+.path-card.hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.path-card h4 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+}
+
+/* Eight Limbs of Yoga */
+.eight-limbs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.limb {
+  display: flex;
+  gap: 1rem;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.limb:nth-child(odd) {
+  background-color: rgba(255, 153, 51, 0.05);
+}
+
+.limb.expanded {
+  background-color: rgba(255, 153, 51, 0.1);
+  transform: scale(1.01);
+}
+
+.limb-number {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.limb-content {
+  flex-grow: 1;
+}
+
+.limb-content h4 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+/* Quote Box */
+.quote {
+  background-color: rgba(255, 153, 51, 0.05);
+  border-left: 4px solid var(--primary-color);
+  padding: 1.5rem;
+  margin: 2rem 0;
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  font-style: italic;
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: all 1s ease;
+}
+
+.quote.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.quote p {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.quote-author {
+  font-size: 0.9rem;
+  font-weight: 500;
+  display: block;
+  text-align: right;
+  color: var(--accent-color);
+}
+
+/* Ayurveda Dosha Flowchart */
+.dosha-flowchart {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+.dosha-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  flex: 1;
+  min-width: 250px;
+  transition: all 0.3s ease;
+  border-top: 4px solid transparent;
+}
+
+.dosha-card#vata {
+  border-color: #a693eb;
+}
+
+.dosha-card#pitta {
+  border-color: #f17d7d;
+}
+
+.dosha-card#kapha {
+  border-color: #7ecfb2;
+}
+
+.dosha-card.active {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.dosha-card h4 {
+  font-size: 1.5rem;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  color: var(--primary-color);
+}
+
+.dosha-elements {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.dosha-elements span {
+  padding: 0.3rem 1rem;
+  background-color: rgba(255, 153, 51, 0.1);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.dosha-card ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.dosha-card li {
+  margin-bottom: 0.5rem;
+  line-height: 1.4;
+}
+
+.dosha-recommendations {
+  background-color: rgba(255, 153, 51, 0.05);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  margin-top: 1rem;
+}
+
+.dosha-recommendations h5 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--accent-color);
+}
+
+/* Treatment Approaches */
+.treatment-approaches {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.approach-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  border-left: 4px solid var(--accent-color);
+}
+
+.approach-card h4 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+}
+
+/* Vedantic Schools */
+.schools-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.school-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--box-shadow);
+  text-align: center;
+}
+
+.school-card h4 {
+  font-size: 1.2rem;
+  color: var(--primary-color);
+  margin-bottom: 0.8rem;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1200px) {
   .wisdom-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 3rem;
-  }
-  
-  .wisdom-image {
-    position: relative;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    height: 100%;
-    max-height: 600px;
-  }
-  
-  .wisdom-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-  
-  .wisdom-section:hover .wisdom-image img {
-    transform: scale(1.05);
-  }
-  
-  .wisdom-text {
-    color: var(--text-color);
-  }
-  
-  .wisdom-text h3 {
-    font-size: 1.8rem;
-    color: var(--accent-color);
-    margin: 1.5rem 0 1rem;
-  }
-  
-  .wisdom-text p {
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
-  }
-  
-  /* Yoga Paths Grid */
-  .paths-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin: 1.5rem 0;
-  }
-  
-  .path-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: var(--box-shadow);
-    border-top: 4px solid var(--accent-color);
-    transition: all 0.3s ease;
-  }
-  
-  .path-card:hover,
-  .path-card.hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  }
-  
-  .path-card h4 {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin-bottom: 0.8rem;
-  }
-  
-  /* Eight Limbs of Yoga */
-  .eight-limbs {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin: 2rem 0;
-  }
-  
-  .limb {
-    display: flex;
-    gap: 1rem;
-    padding: 0.5rem;
-    border-radius: var(--border-radius);
-    transition: all 0.3s ease;
-    cursor: pointer;
-  }
-  
-  .limb:nth-child(odd) {
-    background-color: rgba(255, 153, 51, 0.05);
-  }
-  
-  .limb.expanded {
-    background-color: rgba(255, 153, 51, 0.1);
-    transform: scale(1.01);
-  }
-  
-  .limb-number {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: var(--primary-color);
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 600;
-    font-size: 1.2rem;
-  }
-  
-  .limb-content {
-    flex-grow: 1;
-  }
-  
-  .limb-content h4 {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin-bottom: 0.5rem;
-  }
-  
-  /* Quote Box */
-  .quote {
-    background-color: rgba(255, 153, 51, 0.05);
-    border-left: 4px solid var(--primary-color);
-    padding: 1.5rem;
-    margin: 2rem 0;
-    border-radius: 0 var(--border-radius) var(--border-radius) 0;
-    font-style: italic;
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: all 1s ease;
-  }
-  
-  .quote.animated {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  
-  .quote p {
-    font-size: 1.2rem;
-    margin-bottom: 0.5rem;
-  }
-  
-  .quote-author {
-    font-size: 0.9rem;
-    font-weight: 500;
-    display: block;
-    text-align: right;
-    color: var(--accent-color);
-  }
-  
-  /* Ayurveda Dosha Flowchart */
-  .dosha-flowchart {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 2rem;
-    margin: 2rem 0;
-  }
-  
-  .dosha-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: var(--box-shadow);
-    flex: 1;
-    min-width: 250px;
-    transition: all 0.3s ease;
-    border-top: 4px solid transparent;
-  }
-  
-  .dosha-card#vata {
-    border-color: #a693eb; /* Light purple for Vata */
-  }
-  
-  .dosha-card#pitta {
-    border-color: #f17d7d; /* Light red for Pitta */
-  }
-  
-  .dosha-card#kapha {
-    border-color: #7ecfb2; /* Light green for Kapha */
-  }
-  
-  .dosha-card.active {
-    transform: translateY(-10px) scale(1.03);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-  }
-  
-  .dosha-card h4 {
-    font-size: 1.5rem;
-    text-align: center;
-    margin-bottom: 0.5rem;
-    color: var(--primary-color);
-  }
-  
-  .dosha-elements {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 1rem;
-  }
-  
-  .dosha-elements span {
-    padding: 0.3rem 1rem;
-    background-color: rgba(255, 153, 51, 0.1);
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-  }
-  
-  .dosha-card ul {
-    list-style-type: disc;
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
-  }
-  
-  .dosha-card li {
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-  }
-  
-  .dosha-recommendations {
-    background-color: rgba(255, 153, 51, 0.05);
-    padding: 1rem;
-    border-radius: var(--border-radius);
-    margin-top: 1rem;
-  }
-  
-  .dosha-recommendations h5 {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-    color: var(--accent-color);
-  }
-  
-  /* Treatment Approaches */
-  .treatment-approaches {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-    margin: 1.5rem 0;
-  }
-  
-  .approach-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: var(--box-shadow);
-    border-left: 4px solid var(--accent-color);
-  }
-  
-  .approach-card h4 {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin-bottom: 0.8rem;
-  }
-  
-  /* Vedantic Schools */
-  .schools-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1.5rem;
-    margin: 1.5rem 0;
-  }
-  
-  .school-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    box-shadow: var(--box-shadow);
-    text-align: center;
-  }
-  
-  .school-card h4 {
-    font-size: 1.2rem;
-    color: var(--primary-color);
-    margin-bottom: 0.8rem;
-  }
-  
-  /* Responsive Styles */
-  @media screen and (max-width: 1200px) {
-    .wisdom-content {
       grid-template-columns: 2fr 3fr;
-    }
   }
-  
-  @media screen and (max-width: 992px) {
-    .knowledge-systems-grid {
+}
+
+@media screen and (max-width: 992px) {
+  .knowledge-systems-grid {
       grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .wisdom-content {
+  }
+  .wisdom-content {
       grid-template-columns: 1fr;
       gap: 2rem;
-    }
-    
-    .wisdom-image {
+  }
+  .wisdom-image {
       max-height: 400px;
-    }
-    
-    .paths-grid {
+  }
+  .paths-grid {
       grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .schools-grid {
-      grid-template-columns: 1fr;
-    }
   }
-  
-  @media screen and (max-width: 768px) {
-    .page-hero h1 {
+  .schools-grid {
+      grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page-hero h1 {
       font-size: 2.5rem;
-    }
-    
-    .treatment-approaches {
-      grid-template-columns: 1fr;
-    }
-    
-    .dosha-flowchart {
-      flex-direction: column;
-    }
-    
-    .dosha-card {
-      width: 100%;
-    }
-    
-    .wisdom-header h2 {
-      font-size: 2rem;
-    }
   }
-  
-  @media screen and (max-width: 576px) {
-    .knowledge-systems-grid {
+  .treatment-approaches {
       grid-template-columns: 1fr;
-    }
-    
-    .paths-grid {
-      grid-template-columns: 1fr;
-    }
-    
-    .page-hero {
-      height: 300px;
-    }
-    
-    .page-hero h1 {
+  }
+  .dosha-flowchart {
+      flex-direction: column;
+  }
+  .dosha-card {
+      width: 100%;
+  }
+  .wisdom-header h2 {
       font-size: 2rem;
-    }
-    
-    .wisdom-section {
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .knowledge-systems-grid {
+      grid-template-columns: 1fr;
+  }
+  .paths-grid {
+      grid-template-columns: 1fr;
+  }
+  .page-hero {
+      height: 300px;
+  }
+  .page-hero h1 {
+      font-size: 2rem;
+  }
+  .wisdom-section {
       margin: 3rem 0;
       padding: 2rem 0;
-    }
   }
-  
+}

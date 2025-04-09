@@ -1,0 +1,166 @@
+
+/* Timeline specific styles */
+
+.timeline-section {
+    padding: 2rem 0;
+  }
+  
+  .timeline-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+  }
+  
+  .timeline-navigation {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  .era-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--light-gray);
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: var(--transition);
+    font-weight: 500;
+    font-size: 0.9rem;
+  }
+  
+  .era-btn:hover, .era-btn.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+  
+  .timeline-nav-btn {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--accent-color);
+    cursor: pointer;
+    padding: 0 1rem;
+    transition: var(--transition);
+  }
+  
+  .timeline-nav-btn:hover {
+    color: var(--primary-color);
+  }
+  
+  .timeline-container {
+    margin: 0 auto;
+    max-width: 1200px;
+    overflow: hidden;
+  }
+  
+  .timeline-slider {
+    position: relative;
+  }
+  
+  .era-content {
+    display: none;
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+    padding: 2rem;
+  }
+  
+  .era-content.active {
+    display: grid;
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .era-image {
+    position: relative;
+  }
+  
+  .era-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .era-details h2 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .era-period {
+    font-weight: 500;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    display: inline-block;
+    padding: 0.3rem 1rem;
+    background-color: rgba(255, 153, 51, 0.1);
+    border-radius: 20px;
+  }
+  
+  .era-details ul {
+    list-style-type: disc;
+    margin-left: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .site-gallery, .achievement-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .site, .achievement {
+    text-align: center;
+  }
+  
+  .site img, .achievement img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+  }
+  
+  .site:hover img, .achievement:hover img {
+    transform: scale(1.05);
+  }
+  
+  .site p, .achievement p {
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+  
+  /* Responsive styles */
+  @media screen and (max-width: 992px) {
+    .era-content {
+      grid-template-columns: 1fr;
+    }
+  
+    .site-gallery, .achievement-gallery {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .era-btn {
+      font-size: 0.8rem;
+      padding: 0.4rem 0.8rem;
+    }
+  
+    .site-gallery, .achievement-gallery {
+      grid-template-columns: 1fr;
+    }
+  
+    .timeline-nav-btn {
+      display: none;
+    }
+  }
+  

@@ -1,0 +1,427 @@
+
+/* Epics Page Specific Styles */
+
+.page-hero {
+    background-image: url('assets/epics-hero.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 400px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    text-align: center;
+  }
+  
+  .page-hero .hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 0 2rem;
+  }
+  
+  .page-hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    font-family: 'Volkhov', serif;
+  }
+  
+  .page-hero p {
+    font-size: 1.2rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .page-hero .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1;
+  }
+  
+  /* Epic Navigator Tabs */
+  .epics-navigator {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+  
+  .epic-tab {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: var(--light-gray);
+    border-radius: 30px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .epic-tab:hover {
+    background-color: var(--accent-color);
+    color: var(--white);
+    transform: translateY(-2px);
+  }
+  
+  .epic-tab.active {
+    background-color: var(--primary-color);
+    color: var(--white);
+  }
+  
+  /* Epic Content Sections */
+  .epic-content {
+    display: none;
+    padding: 2rem 0;
+  }
+  
+  .epic-content.active {
+    display: block;
+    animation: fadeIn 0.5s ease-in;
+  }
+  
+  .epic-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  .epic-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  
+  .epic-header h2 {
+    font-size: 2.5rem;
+    font-family: 'Volkhov', serif;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  .epic-subtitle {
+    font-size: 1.2rem;
+    color: var(--accent-color);
+    font-style: italic;
+  }
+  
+  /* Epic Overview Layout */
+  .epic-overview {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+    align-items: center;
+  }
+  
+  .epic-image {
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+  }
+  
+  .epic-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+  }
+  
+  .epic-image:hover img {
+    transform: scale(1.05);
+  }
+  
+  .epic-details h3 {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--dark-color);
+  }
+  
+  .epic-facts {
+    display: flex;
+    gap: 2rem;
+    margin-top: 1.5rem;
+  }
+  
+  .fact h4 {
+    font-size: 1rem;
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Characters Section */
+  .epic-characters,
+  .epic-teachings {
+    margin-bottom: 3rem;
+  }
+  
+  .epic-characters h3,
+  .epic-teachings h3,
+  .epic-trivia h3,
+  .folktale-regions h3,
+  .purana-categories h3 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: var(--dark-color);
+  }
+  
+  .character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .character-card {
+    background-color: var(--light-gray);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+  
+  .character-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .character-image {
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .character-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .character-card:hover .character-image img {
+    transform: scale(1.1);
+  }
+  
+  .character-card h4 {
+    padding: 1rem 1rem 0.5rem;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+  }
+  
+  .character-card p {
+    padding: 0 1rem 1rem;
+    font-size: 0.9rem;
+    color: var(--text-color);
+  }
+  
+  /* Teachings Section */
+  .teachings-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .teaching-card {
+    background-color: rgba(255, 153, 51, 0.1);
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    border-left: 4px solid var(--primary-color);
+    transition: transform 0.3s ease;
+  }
+  
+  .teaching-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--box-shadow);
+  }
+  
+  .teaching-card h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-color);
+  }
+  
+  /* Trivia Section */
+  .trivia-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .trivia-card {
+    background-color: #fff;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+  
+  .trivia-card.revealed {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .trivia-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: var(--white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  /* Puranas Categories */
+  .categories-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .category-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .category-card h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .category-card p {
+    margin-bottom: 1rem;
+    font-style: italic;
+  }
+  
+  .category-card ul {
+    list-style-type: disc;
+    padding-left: 1.5rem;
+  }
+  
+  .category-card li {
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Folk Tales Region Cards */
+  .region-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+  
+  .region-card {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    transition: transform 0.3s ease;
+  }
+  
+  .region-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .region-card h4 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .region-card p {
+    margin-bottom: 1.2rem;
+  }
+  
+  .read-more {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--accent-color);
+    color: var(--white);
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  
+  .read-more:hover {
+    background-color: var(--primary-color);
+    transform: translateX(5px);
+  }
+  
+  /* Responsive Styles */
+  @media screen and (max-width: 992px) {
+    .character-grid,
+    .teachings-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .trivia-container,
+    .categories-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .epic-overview {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .page-hero h1 {
+      font-size: 2.5rem;
+    }
+    
+    .epic-header h2 {
+      font-size: 2rem;
+    }
+    
+    .region-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .epic-tab {
+      padding: 0.6rem 1.2rem;
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media screen and (max-width: 576px) {
+    .character-grid,
+    .teachings-grid,
+    .trivia-container,
+    .categories-grid {
+      grid-template-columns: 1fr;
+    }
+    
+    .epic-facts {
+      flex-direction: column;
+      gap: 1rem;
+    }
+    
+    .page-hero {
+      height: 300px;
+    }
+    
+    .page-hero h1 {
+      font-size: 2rem;
+    }
+  }
+  

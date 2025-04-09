@@ -1,0 +1,444 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Astitva</title>
+    <meta name="description" content="Interactive Chatbot for Indian Heritage" />
+    <meta name="author" content="Astitva" />
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Volkhov:wght@400;700&display=swap">
+
+    <meta property="og:title" content="Astitva" />
+    <meta property="og:description" content="Interactive Chatbot for Indian Heritage" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    <style>
+      .chat-container {
+        display: flex;
+        flex-direction: column;
+        height: 70vh;
+        max-width: 800px;
+        margin: 0 auto;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        border: 1px solid #e2e8f0;
+        background-color: #fff;
+        margin-bottom: 2rem;
+      }
+
+      #chatMessages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 1rem;
+        background: #f8fafc;
+      }
+
+      .user-message {
+        background: #FF7722;
+        color: white;
+        border-radius: 1rem 1rem 0 1rem;
+        margin-left: auto;
+        margin-bottom: 1rem;
+        max-width: 70%;
+        padding: 1rem;
+      }
+
+      .bot-message {
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 1rem 1rem 1rem 0;
+        margin-bottom: 1rem;
+        max-width: 70%;
+        padding: 1rem;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      }
+
+      .bot-message strong {
+        font-weight: normal !important;
+      }
+
+      .loading-indicator {
+        display: inline-flex;
+        gap: 0.5rem;
+        align-items: center;
+        color: #64748b;
+      }
+
+      .dot-flashing {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #FF7722;
+        animation: dotFlashing 1s infinite linear;
+      }
+
+      @keyframes dotFlashing {
+        0% {
+          opacity: 0.2;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0.2;
+        }
+      }
+      
+      .chat-header {
+        background: linear-gradient(90deg, #FF7722, #FFA94D);
+        color: white;
+        padding: 1rem;
+        text-align: center;
+        font-weight: bold;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      
+      .input-container {
+        background-color: #fff;
+        padding: 1rem;
+        border-top: 1px solid #e2e8f0;
+        display: flex;
+        gap: 10px;
+      }
+      
+      .input-container input {
+        flex: 1;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 25px;
+        font-size: 16px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+      
+      .input-container input:focus {
+        border-color: #FF7722;
+        box-shadow: 0 0 0 2px rgba(255, 119, 34, 0.2);
+      }
+      
+      .send-button {
+        background-color: #FF7722;
+        color: white;
+        border: none;
+        border-radius: 50%;
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s;
+      }
+      
+      .send-button:hover {
+        background-color: #E56A00;
+      }
+      
+      .chat-features {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+        max-width: 800px;
+        margin: 0 auto 20px;
+      }
+      
+      .feature-card {
+        background: white;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        border-left: 4px solid #FF7722;
+      }
+      
+      .feature-card h3 {
+        color: #333;
+        font-size: 18px;
+        margin-bottom: 8px;
+      }
+      
+      .feature-card p {
+        color: #666;
+        font-size: 14px;
+        margin: 0;
+      }
+      
+      .chatbot-section {
+        max-width: 1200px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <div class="logo-container">
+            <img src="assets/lotus-logo.svg" alt="Astitva Logo" class="logo">
+            <span class="logo-text">Astitva</span>
+        </div>
+        <nav id="main-nav">
+            <button class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="regions.html">Explore Regions</a></li>
+                <li><a href="timeline.html">Timeline</a></li>
+                <li><a href="epics.html">Epics</a></li>
+                <li><a href="festivals.html">Festivals</a></li>
+                <li><a href="wisdom.html">Ancient Wisdom</a></li>
+                <li><a href="quiz.html">Quiz Zone</a></li>
+                <li><a href="chat.html" class="active">Chat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero-section small-hero">
+            <div class="hero-content">
+                <h1>Chat with <span class="highlight">Astitva</span></h1>
+                <p>Ask questions about Indian heritage, culture, and traditions</p>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+        
+        <section class="chatbot-section">
+            <h2 class="section-title">Your Heritage Learning Assistant</h2>
+            
+            <div class="chat-features">
+                <div class="feature-card">
+                    <h3>Learn About Traditions</h3>
+                    <p>Ask specific questions about Indian festivals, customs and practices across different regions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Historical Knowledge</h3>
+                    <p>Explore India's rich history from ancient civilizations to modern developments.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Cultural Insights</h3>
+                    <p>Discover the meanings behind various cultural symbols and practices in Indian heritage.</p>
+                </div>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-header">
+                    <div class="flex items-center justify-center">
+                        <img src="assets/lotus-logo.svg" alt="EduGenie Logo" style="height: 24px; margin-right: 8px;">
+                        EduGenie - Your Heritage Guide
+                    </div>
+                </div>
+                
+                <div id="chatMessages" class="p-4"></div>
+                
+                <div class="input-container">
+                    <input
+                        type="text"
+                        id="userInput"
+                        placeholder="Ask about Indian heritage, traditions, or history..."
+                    />
+                    <button onclick="sendMessage()" class="send-button">➤</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="assets/lotus-logo.svg" alt="Astitva Logo" class="logo">
+                <h3>Astitva</h3>
+                <p>Celebrating India's Cultural Heritage</p>
+            </div>
+            <div class="footer-links">
+                <div class="footer-section">
+                    <h4>Explore</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="regions.html">Explore Regions</a></li>
+                        <li><a href="timeline.html">Timeline</a></li>
+                        <li><a href="epics.html">Epics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Discover</h4>
+                    <ul>
+                        <li><a href="festivals.html">Festivals</a></li>
+                        <li><a href="wisdom.html">Ancient Wisdom</a></li>
+                        <li><a href="quiz.html">Quiz Zone</a></li>
+                        <li><a href="chat.html">Chat</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="contribute.html">Contribute</a></li>
+                        <li><a href="feedback.html">Feedback</a></li>
+                        <li><a href="credits.html">Credits</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-social">
+                <h4>Follow Us</h4>
+                <div class="social-icons">
+                    <a href="#" class="social-icon"><img src="assets/facebook-icon.svg" alt="Facebook"></a>
+                    <a href="#" class="social-icon"><img src="assets/twitter-icon.svg" alt="Twitter"></a>
+                    <a href="#" class="social-icon"><img src="assets/instagram-icon.svg" alt="Instagram"></a>
+                    <a href="#" class="social-icon"><img src="assets/youtube-icon.svg" alt="YouTube"></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2025 Astitva - Celebrating India's Heritage. All Rights Reserved.</p>
+            <p class="footer-tagline">"Preserving our past, enriching our future"</p>
+        </div>
+    </footer>
+
+    <script>
+        const SYSTEM_PROMPT = `You are EduGenie, a knowledgeable assistant specializing in Indian heritage, culture, and traditions.
+        Format your responses as follows:
+        Topic: [input topic]
+        
+        1. Introduction: [2-3 sentences giving a brief overview of the topic]
+        
+        2. Key Terms: [5 essential terms related to the topic with brief explanations]
+        
+        3. Main Concepts: [3 bullet points about the main ideas or aspects of the topic]
+        
+        4. Detailed Explanation: [A paragraph providing comprehensive information about the topic]
+        
+        5. Real Examples: [2 examples or stories that illustrate the topic]
+        
+        6. Summary: [5 bullet points summarizing the key takeaways]
+        
+        7. Questions: [5 exam-style questions to test understanding]
+        
+        8. Motivation: [How this knowledge applies to real life or why it matters]
+        
+        9. Story: [A short interactive story related to the topic]
+        
+        Always maintain a warm, educational tone. Focus specifically on Indian heritage, culture, history, traditions, festivals, mythology, and related topics.`;
+
+        let isProcessing = false;
+        const chatMessages = document.getElementById("chatMessages");
+
+        async function sendMessage() {
+            if (isProcessing) return;
+
+            const input = document.getElementById("userInput");
+            const message = input.value.trim();
+            if (!message) return;
+
+            isProcessing = true;
+            input.disabled = true;
+
+            // Add user message
+            addMessage(message, "user");
+            input.value = "";
+
+            // Add loading
+            const loader = addLoading();
+
+            try {
+                const response = await fetch(
+                    "https://openrouter.ai/api/v1/chat/completions",
+                    {
+                        method: "POST",
+                        headers: {
+                            Authorization:
+                                "Your_API_Key",
+                            "Content-Type": "application/json",
+                        },
+                        body: JSON.stringify({
+                            model: "deepseek/deepseek-r1:free",
+                            messages: [
+                                { role: "system", content: SYSTEM_PROMPT },
+                                { role: "user", content: message },
+                            ],
+                            temperature: 0.3,
+                            top_p: 0.9,
+                            max_tokens: 1000,
+                            return_images: false,
+                            return_related_questions: false,
+                            search_domain_filter: ['perplexity.ai'],
+                            search_recency_filter: 'month',
+                            frequency_penalty: 1,
+                            presence_penalty: 0
+                        }),
+                    }
+                );
+
+                if (!response.ok) throw new Error("API Error: " + response.status);
+
+                const data = await response.json();
+                removeLoading(loader);
+                
+                // Enhance the output with some visual formatting
+                let formattedResponse = data.choices[0].message.content;
+                formattedResponse = formattedResponse.replace(/Topic:/g, "<strong style='color:#FF7722;font-weight:bold;'>Topic:</strong>");
+                formattedResponse = formattedResponse.replace(/\d\.\s(.*?):/g, "<strong style='color:#FF7722;font-weight:bold;'>$&</strong>");
+                
+                addMessage(formattedResponse, "bot");
+            } catch (error) {
+                removeLoading(loader);
+                addMessage(`Sorry, I'm having trouble connecting right now. Please try again later. (Error: ${error.message})`, "error");
+            } finally {
+                isProcessing = false;
+                input.disabled = false;
+                input.focus();
+            }
+        }
+
+        function addMessage(content, type) {
+            const div = document.createElement("div");
+            div.className =
+                type === "user"
+                    ? "user-message"
+                    : type === "error"
+                    ? "bot-message text-red-600"
+                    : "bot-message";
+            div.innerHTML = content.replace(/\n/g, "<br>");
+            chatMessages.appendChild(div);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function addLoading() {
+            const loader = document.createElement("div");
+            loader.className = "bot-message";
+            loader.innerHTML = `
+                <div class="loading-indicator">
+                    <div class="dot-flashing"></div>
+                    <div class="dot-flashing" style="animation-delay: 0.2s"></div>
+                    <div class="dot-flashing" style="animation-delay: 0.4s"></div>
+                    <span class="ml-2">Exploring ancient knowledge...</span>
+                </div>
+            `;
+            chatMessages.appendChild(loader);
+            return loader;
+        }
+
+        function removeLoading(loader) {
+            chatMessages.removeChild(loader);
+        }
+
+        // Enter key support
+        document.getElementById("userInput").addEventListener("keypress", (e) => {
+            if (e.key === "Enter") sendMessage();
+        });
+    </script>
+
+    <!-- Scripts -->
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
+    <script src="scripts.js"></script>
+    <script src="chat.js"></script>
+</body>
+</html>

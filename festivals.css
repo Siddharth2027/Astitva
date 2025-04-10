@@ -2,7 +2,7 @@
 /* Festivals Page Specific Styles */
 
 .page-hero {
-    background-image: url('assets/festivals-hero.jpg');
+    background-image: url('assets/bg3.jpg');
     background-size: cover;
     background-position: center;
     height: 400px;
@@ -15,7 +15,7 @@
   }
   
   .festivals-hero {
-    background-image: url('assets/festivals-hero.jpg');
+    background-image: url('assets/bg3.jpg');
   }
   
   .page-hero .hero-content {

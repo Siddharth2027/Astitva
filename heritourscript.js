@@ -23,7 +23,7 @@ function searchPlace() {
       const response = await fetch("https://api.imagga.com/v2/tags", {
         method: "POST",
         headers: {
-          "Authorization": "Basic " + btoa("API_KEY: API_SECRET_KEY") // Replace with your Imagga API credentials
+          "Authorization": "Basic " + btoa("YOUR_API_KEY: YOUR_SECRET_API_KEY") // Replace with your Imagga API credentials
         },
         body: formData
       });

@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add welcome message
     const chatMessages = document.getElementById('chatMessages');
     if (chatMessages) {
-      addMessage("Welcome to EduGenie! I'm your guide to Indian heritage and culture. Ask me about any aspect of Indian traditions, history, festivals, mythology, or cultural practices.", "bot");
+      addMessage("Welcome to Acharya! I'm your guide to Indian heritage and culture. Ask me about any aspect of Indian traditions, history, festivals, mythology, or cultural practices.", "bot");
     }
   
     // Add example topic suggestions

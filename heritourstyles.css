@@ -1,0 +1,335 @@
+/* Existing styles (unchanged) */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('https://i.imgur.com/MqgJ3Qc.jpg'); /* soft parchment background */
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #4b2900;
+    background-color: #dcc6948e;
+}
+
+.container {
+    background-color: rgba(255, 250, 240, 0.9);
+    border: 4px double #c98e4e;
+    margin: 30px auto;
+    padding: 40px;
+    border-radius: 25px;
+    max-width: 800px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 3.2rem;
+    color: #7c3e00;
+    margin-bottom: 5px;
+    text-shadow: 2px 2px #f0dba4;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    color: #5a3200;
+}
+
+.search-section, .upload-section {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+input[type="text"], input[type="file"], button {
+    padding: 12px 18px;
+    font-size: 1rem;
+    border-radius: 12px;
+    border: 1px solid #b37600;
+    background-color: #fff9e6;
+    color: #5a3200;
+    transition: all 0.3s ease;
+    font-family: 'Kaisei Decol', serif;
+}
+
+button {
+    background-color: #ffe2a1;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #ffd98b;
+    transform: scale(1.05);
+}
+
+.divider {
+    margin: 15px auto;
+    font-style: italic;
+    font-weight: bold;
+    color: #865400;
+    text-align: center;
+}
+
+#infoBox {
+    margin-top: 40px;
+    padding: 30px;
+    border: 3px dashed #d7a154;
+    background: #fffef5;
+    border-radius: 20px;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    box-shadow: 0 0 25px rgba(0,0,0,0.1);
+    animation: fadeIn 1s ease-in-out;
+}
+
+#infoBox h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: #7b3e00;
+    margin-bottom: 15px;
+}
+
+#infoBox p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+}
+
+#imagePreview {
+    max-width: 100%;
+    border-radius: 20px;
+    margin-bottom: 25px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+@keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Define CSS variables from quiz.css to support header and footer */
+:root {
+    --white: #ffffff;
+    --dark-gray: #333333;
+    --light-gray: #f5f5f5;
+    --medium-gray: #cccccc;
+    --primary-color: #ff9933;
+    --accent-color: #000080; 
+    --secondary-color: #000080;
+    --font-body: 'Poppins', sans-serif;
+    --font-heading: 'Volkhov', serif;
+    --transition: all 0.3s ease;
+    --border-radius: 8px;
+    --box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Header styles from quiz.css */
+#main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background-color: var(--white);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    width: 50px;
+    height: 50px;
+}
+
+.logo-text {
+    font-family: var(--font-heading);
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-left: 0.5rem;
+}
+
+#main-nav {
+    display: flex;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    margin: 0;
+}
+
+.nav-links li {
+    margin: 0 0.5rem;
+}
+
+.nav-links a {
+    display: block;
+    padding: 0.5rem 1rem;
+    color: var(--dark-gray);
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-links a:after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: 0;
+    left: 50%;
+    background-color: var(--primary-color);
+    transition: 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.nav-links a:hover:after,
+.nav-links a.active:after {
+    width: 80%;
+}
+
+.nav-links a.active {
+    color: var(--primary-color);
+}
+
+.mobile-menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    width: 30px;
+    height: 24px;
+    position: relative;
+}
+
+.mobile-menu-btn span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background-color: var(--dark-gray);
+    position: absolute;
+    transition: var(--transition);
+}
+
+.mobile-menu-btn span:nth-child(1) {
+    top: 0;
+}
+
+.mobile-menu-btn span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.mobile-menu-btn span:nth-child(3) {
+    bottom: 0;
+}
+
+/* Footer styles from quiz.css */
+footer {
+    background-color: var(--dark-gray);
+    color: var(--white);
+    padding: 4rem 5% 2rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-logo {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-logo h3 {
+    color: var(--white);
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.footer-links {
+    flex: 2;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+}
+
+.footer-section h4 {
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-section a {
+    color: var(--white);
+    opacity: 0.8;
+}
+
+.footer-section a:hover {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+.footer-social {
+    flex: 1;
+    min-width: 200px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.social-icon:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+}
+
+.social-icon img {
+    width: 20px;
+    height: 20px;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    opacity: 0.7;
+}
+
+.footer-tagline {
+    font-style: italic;
+    margin-top: 0.5rem;
+}
